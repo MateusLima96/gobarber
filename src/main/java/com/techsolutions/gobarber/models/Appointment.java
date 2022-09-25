@@ -1,22 +1,29 @@
 package com.techsolutions.gobarber.models;
 
-import org.springframework.boot.autoconfigure.domain.EntityScan;
-import org.springframework.context.annotation.Primary;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.experimental.Accessors;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.relational.core.mapping.Column;
+import org.springframework.data.relational.core.mapping.Table;
 
+import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.UUID;
 
-@EntityScan("appointments")
+
+@Table
+@Getter
+@Setter
+@Accessors(chain = true)
+@NoArgsConstructor
 public class Appointment {
 
     @Id
-    private String id;
+    private UUID id;
 
-    @Column
     private String provider;
 
-    @Column
-    private Date date;
+    private LocalDateTime date;
 
 }
