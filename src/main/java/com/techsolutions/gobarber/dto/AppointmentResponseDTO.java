@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 @Data
 @NoArgsConstructor
@@ -14,6 +15,7 @@ import java.time.LocalDateTime;
 @Setter
 public class AppointmentResponseDTO {
 
+    private UUID id;
     private String provider;
     private LocalDateTime date;
 

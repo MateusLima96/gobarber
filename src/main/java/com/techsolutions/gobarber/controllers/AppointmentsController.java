@@ -4,14 +4,16 @@ import com.techsolutions.gobarber.dto.AppointmentRequestDTO;
 import com.techsolutions.gobarber.dto.AppointmentResponseDTO;
 import com.techsolutions.gobarber.services.AppointmentService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.reactive.function.server.ServerResponse;
 import reactor.core.publisher.Mono;
 
 @RestController
-@RequestMapping(value = "/appointments")
+@RequestMapping(value = "v1/appointments")
 @RequiredArgsConstructor
 public class AppointmentsController {
 

@@ -1,22 +1,23 @@
 package com.techsolutions.gobarber.models;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.experimental.Accessors;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.domain.Persistable;
+import org.springframework.data.relational.core.mapping.Embedded;
 import org.springframework.data.relational.core.mapping.Table;
+import org.springframework.lang.Nullable;
 
 import java.time.LocalDateTime;
+import java.util.Objects;
 import java.util.UUID;
 
-
-@Table
-@Getter
-@Setter
-@Accessors(chain = true)
+@Data
+@Table("appointments")
 @NoArgsConstructor
-public class Appointment {
+public class Appointment implements Persistable<UUID> {
 
     @Id
     private UUID id;
@@ -25,4 +26,10 @@ public class Appointment {
 
     private LocalDateTime date;
 
+    @Override
+    public boolean isNew() {
+        boolean result = Objects.isNull(id);
+        this.id = result ? UUID.randomUUID() : this.id;
+        return result;
+    }
 }
