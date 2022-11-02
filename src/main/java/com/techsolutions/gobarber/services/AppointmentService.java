@@ -6,6 +6,4 @@ import reactor.core.publisher.Mono;
 
 public interface AppointmentService {
     Mono<AppointmentResponseDTO> createAppointment(AppointmentRequestDTO appointmentRequestDto);
-
-
 }
