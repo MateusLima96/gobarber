@@ -6,12 +6,10 @@ import com.techsolutions.gobarber.services.AppointmentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import org.springframework.web.server.handler.ResponseStatusExceptionHandler;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.io.IOException;
@@ -35,6 +33,11 @@ public class AppointmentsController {
                     }
                     return Mono.error(RuntimeException::new);
                 });
+    }
+
+    @GetMapping
+    public Flux<AppointmentResponseDTO> getAppointments() {
+            return appointmentService.getAppointments();
     }
 
 }

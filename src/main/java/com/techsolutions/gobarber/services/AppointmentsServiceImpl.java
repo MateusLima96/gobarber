@@ -8,6 +8,7 @@ import com.techsolutions.gobarber.utils.EntityDtoUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.beans.Transient;
@@ -33,5 +34,11 @@ public class AppointmentsServiceImpl implements AppointmentService{
                         EntityDtoUtil.toEntity(appointmentRequestDTO)
                 ).flatMap(this.appointmentsRepository::save)
                         .map(ap -> EntityDtoUtil.toDto(appointmentRequestDTO, ap.getId())));
+    }
+
+    @Override
+    public Flux<AppointmentResponseDTO> getAppointments() {
+        return this.appointmentsRepository.findAll()
+                .map(EntityDtoUtil::toDto);
     }
 }

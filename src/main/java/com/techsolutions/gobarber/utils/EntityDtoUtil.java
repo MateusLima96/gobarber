@@ -3,6 +3,7 @@ package com.techsolutions.gobarber.utils;
 import com.techsolutions.gobarber.dto.AppointmentRequestDTO;
 import com.techsolutions.gobarber.dto.AppointmentResponseDTO;
 import com.techsolutions.gobarber.models.Appointment;
+import org.springframework.beans.BeanUtils;
 
 import java.util.UUID;
 
@@ -22,6 +23,13 @@ public class EntityDtoUtil {
         appointmentResponseDTO.setId(id);
         appointmentResponseDTO.setDate(appointmentRequestDTO.getDate());
         appointmentResponseDTO.setProvider(appointmentRequestDTO.getProvider());
+
+        return appointmentResponseDTO;
+    }
+
+    public static AppointmentResponseDTO toDto(Appointment appointment){
+        AppointmentResponseDTO appointmentResponseDTO = new AppointmentResponseDTO();
+        BeanUtils.copyProperties(appointment, appointmentResponseDTO);
 
         return appointmentResponseDTO;
     }
