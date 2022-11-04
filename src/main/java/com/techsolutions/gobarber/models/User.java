@@ -13,16 +13,18 @@ import java.util.Objects;
 import java.util.UUID;
 
 @Data
-@Table("appointments")
+@Table("users")
 @NoArgsConstructor
-public class Appointment implements Persistable<UUID> {
+public class User implements Persistable<UUID> {
 
     @Id
     private UUID id;
 
-    private UUID provider_id;
+    private String name;
 
-    private LocalDateTime date;
+    private String email;
+
+    private String password;
 
     @CreatedDate
     private LocalDateTime created_at;

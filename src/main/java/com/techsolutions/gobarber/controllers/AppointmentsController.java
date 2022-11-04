@@ -4,15 +4,11 @@ import com.techsolutions.gobarber.dto.AppointmentRequestDTO;
 import com.techsolutions.gobarber.dto.AppointmentResponseDTO;
 import com.techsolutions.gobarber.services.AppointmentService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.dao.DuplicateKeyException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
-import org.springframework.web.server.handler.ResponseStatusExceptionHandler;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
-
-import java.io.IOException;
 
 @RestController
 @RequestMapping(value = "v1/appointments")

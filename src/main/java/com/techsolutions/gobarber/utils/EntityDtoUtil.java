@@ -13,7 +13,7 @@ public class EntityDtoUtil {
     public static Appointment toEntity(AppointmentRequestDTO appointmentRequestDTO){
             Appointment appointment = new Appointment();
             appointment.setDate(appointmentRequestDTO.getDate());
-            appointment.setProvider(appointmentRequestDTO.getProvider());
+            appointment.setProvider_id(appointmentRequestDTO.getProvider());
 
             return appointment;
     }
