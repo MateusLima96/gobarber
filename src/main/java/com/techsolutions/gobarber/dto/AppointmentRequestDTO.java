@@ -12,9 +12,8 @@ import java.util.UUID;
 @Setter
 public class AppointmentRequestDTO {
 
-
-    @JsonProperty(value = "provider")
-    private UUID provider;
+    @JsonProperty(value = "provider_id")
+    private UUID provider_id;
     @JsonProperty(value = "date")
     private LocalDateTime date;
 

@@ -27,7 +27,7 @@ public class AppointmentsServiceImpl implements AppointmentService{
                 .switchIfEmpty(Mono.just(
                         EntityDtoUtil.toEntity(appointmentRequestDTO)
                 ).flatMap(this.appointmentsRepository::save)
-                        .map(ap -> EntityDtoUtil.toDto(appointmentRequestDTO, ap.getId())));
+                        .map(ap -> EntityDtoUtil.toDto(ap, ap.getId())));
     }
 
     @Override

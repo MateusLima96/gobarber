@@ -10,10 +10,9 @@ import java.util.UUID;
 
 @Data
 @NoArgsConstructor
-public class AppointmentResponseDTO {
+public class UserResponseDTO {
 
     private UUID id;
-    private UUID provider_id;
-    private LocalDateTime date;
-
+    private String name;
+    private String email;
 }

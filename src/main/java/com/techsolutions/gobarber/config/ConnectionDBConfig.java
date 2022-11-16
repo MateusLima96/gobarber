@@ -20,5 +20,4 @@ public class ConnectionDBConfig {
         initializer.setDatabasePopulator(resource);
         return initializer;
     }
-
 }
