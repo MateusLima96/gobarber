@@ -11,5 +11,5 @@ import java.util.UUID;
 @Repository
 public interface UsersRepository extends ReactiveCrudRepository<User, UUID> {
     @Query("SELECT * FROM users WHERE email = :email")
-    Mono<String> findByEmail(String email);
+    Mono<User> findByEmail(String email);
 }

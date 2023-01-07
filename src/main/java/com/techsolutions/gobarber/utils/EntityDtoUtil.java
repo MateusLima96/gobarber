@@ -1,9 +1,6 @@
 package com.techsolutions.gobarber.utils;
 
-import com.techsolutions.gobarber.dto.AppointmentRequestDTO;
-import com.techsolutions.gobarber.dto.AppointmentResponseDTO;
-import com.techsolutions.gobarber.dto.UserRequestDTO;
-import com.techsolutions.gobarber.dto.UserResponseDTO;
+import com.techsolutions.gobarber.dto.*;
 import com.techsolutions.gobarber.models.Appointment;
 import com.techsolutions.gobarber.models.User;
 import org.springframework.beans.BeanUtils;
@@ -26,6 +23,14 @@ public class EntityDtoUtil {
         user.setName(userRequestDTO.getName());
         user.setEmail(userRequestDTO.getEmail());
         user.setPassword(password);
+
+        return user;
+    }
+
+    public static User toEntity(SessionRequestDTO sessionRequestDTO){
+        User user = new User();
+        user.setName(sessionRequestDTO.getEmail());
+        user.setEmail(sessionRequestDTO.getPassword());
 
         return user;
     }
